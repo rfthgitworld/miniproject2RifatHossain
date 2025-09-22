@@ -50,6 +50,7 @@ def gen_scatter_plot():
     plt.ylabel('Calories Burned', fontdict = font2)
     plt.title("Relationship: Exercise Minutes vs Calories Burned", fontdict = font1)
     plt.savefig('charts/scatter_exercise_calories.png')
+    print(f'scatter_exercise_calories.png saved to charts directory')
 
 
 # 2. Do men vs women differ in exercise minutes or calories burned?
@@ -71,6 +72,7 @@ def gen_bar_chart():
     ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
     plt.tight_layout()
     plt.savefig('charts/bar_exercise_cal.png')
+    print(f'bar_exercise_cal.png saved to charts directory')
 
 
 # 3. Does more sleep reduce stress level? (Correlation Heatmap)?
@@ -86,12 +88,14 @@ def gen_correlation_heatmap():
     ax.set_xticklabels(numeric_cols, rotation=90)
     ax.set_yticklabels(numeric_cols)
     ax.set_title("Correlation Heatmap")
+    plt.tight_layout()
     plt.savefig('charts/correlation_heatmap.png')
+    print(f'correlation_heatmap.png saved to charts directory')
 
 # 4. Relationship: Heart rate vs Exercise minutes (Bubble chart)
 def gen_bubble_chart():
     fig, ax = plt.subplots()
-    scatter = ax.scatter(
+    ax.scatter(
         df["exercise_minutes"],
         df["heart_rate_avg"],
         s=df["calories_burned"] / 10,   # scale bubble size
@@ -102,6 +106,7 @@ def gen_bubble_chart():
     ax.set_ylabel("Average Heart Rate")
     ax.set_title("Heart Rate vs Exercise Minutes (Bubble size = Calories Burned)")
     plt.savefig('charts/bubble_cart_heart_rate.png')
+    print(f'bubble_cart_heart_rate.png saved to charts directory')
 
 # 5. Distribution of BMI categories (Pie chart)
 def pie_chart_bmi():
@@ -122,10 +127,17 @@ def pie_chart_bmi():
     ax.pie(bmi_counts, labels=bmi_counts.index, autopct="%1.1f%%", startangle=90)
     ax.set_title("BMI Category Distribution")
     plt.savefig('charts/bmi_category_distribution.png')
+    print(f'bmi_category_distribution.png saved to charts directory')
 
-# Generate all plots
+# Generate all plots sequentially
+print("")
 gen_scatter_plot()
 gen_bar_chart()
 gen_correlation_heatmap()
 gen_bubble_chart()
 pie_chart_bmi()
+
+print("")
+print("*" * 60)
+print(f"All done. Please check the graphs under /charts directory.")
+print("*" * 60)
