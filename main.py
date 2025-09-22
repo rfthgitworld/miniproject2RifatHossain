@@ -83,3 +83,18 @@ ax.set_xticklabels(numeric_cols, rotation=90)
 ax.set_yticklabels(numeric_cols)
 ax.set_title("Correlation Heatmap")
 plt.savefig('charts/correlation_heatmap.png')
+
+# 4. Relationship: Heart rate vs Exercise minutes (Bubble chart)
+
+fig, ax = plt.subplots()
+scatter = ax.scatter(
+    df["exercise_minutes"],
+    df["heart_rate_avg"],
+    s=df["calories_burned"] / 10,   # scale bubble size
+    alpha=0.4
+)
+
+ax.set_xlabel("Exercise Minutes")
+ax.set_ylabel("Average Heart Rate")
+ax.set_title("Heart Rate vs Exercise Minutes (Bubble size = Calories Burned)")
+plt.savefig('charts/bubble_cart_heart_rate.png')
