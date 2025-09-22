@@ -67,3 +67,19 @@ ax.set_title("Gender Differences: Exercise Minutes vs Calories Burned", font1)
 ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
 plt.tight_layout()
 plt.savefig('charts/bar_exercise_cal.png')
+
+
+# 3. Does more sleep reduce stress level? (Correlation Heatmap)?
+
+numeric_cols = ['steps', 'heart_rate_avg', 'sleep_hours', 'calories_burned', 'exercise_minutes', 'stress_level', 'weight_kg', 'bmi']
+corr = df[numeric_cols].corr()
+
+fig, ax = plt.subplots()
+cax = ax.matshow(corr, cmap="coolwarm")
+fig.colorbar(cax)
+ax.set_xticks(range(len(numeric_cols)))
+ax.set_yticks(range(len(numeric_cols)))
+ax.set_xticklabels(numeric_cols, rotation=90)
+ax.set_yticklabels(numeric_cols)
+ax.set_title("Correlation Heatmap")
+plt.savefig('charts/correlation_heatmap.png')
