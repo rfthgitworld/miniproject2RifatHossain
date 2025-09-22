@@ -46,3 +46,24 @@ plt.xlabel('Exercise Minutes', fontdict = font2)
 plt.ylabel('Calories Burned', fontdict = font2)
 plt.title("Relationship: Exercise Minutes vs Calories Burned", fontdict = font1)
 plt.savefig('charts/scatter_exercise_calories.png')
+
+# 2. Do men vs women differ in exercise minutes or calories burned?
+
+gender_group = df.groupby("gender")[["exercise_minutes", "calories_burned"]].mean()
+
+x = np.arange(len(gender_group))  # gender positions
+width = 0.35
+
+
+fig, ax = plt.subplots()
+ax.bar(x - width/2, gender_group["exercise_minutes"], width, label="Exercise Minutes")
+ax.bar(x + width/2, gender_group["calories_burned"], width, label="Calories Burned")
+
+ax.set_xticks(x)
+ax.set_xticklabels(gender_group.index)
+ax.set_xlabel("Gender", fontdict = font2)
+ax.set_ylabel("Average Value", fontdict = font2)
+ax.set_title("Gender Differences: Exercise Minutes vs Calories Burned", font1)
+ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
+plt.tight_layout()
+plt.savefig('charts/bar_exercise_cal.png')
