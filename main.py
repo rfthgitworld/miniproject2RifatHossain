@@ -98,3 +98,23 @@ ax.set_xlabel("Exercise Minutes")
 ax.set_ylabel("Average Heart Rate")
 ax.set_title("Heart Rate vs Exercise Minutes (Bubble size = Calories Burned)")
 plt.savefig('charts/bubble_cart_heart_rate.png')
+
+# 5. Distribution of BMI categories (Pie chart)
+
+def bmi_category(bmi):
+    if bmi < 18.5:
+        return "Underweight"
+    elif bmi < 25:
+        return "Normal"
+    elif bmi < 30:
+        return "Overweight"
+    else:
+        return "Obese"
+
+df["bmi_category"] = df["bmi"].apply(bmi_category)
+bmi_counts = df["bmi_category"].value_counts()
+
+fig, ax = plt.subplots()
+ax.pie(bmi_counts, labels=bmi_counts.index, autopct="%1.1f%%", startangle=90)
+ax.set_title("BMI Category Distribution")
+plt.savefig('charts/bmi_category_distribution.png')
