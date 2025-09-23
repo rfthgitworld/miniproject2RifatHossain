@@ -45,4 +45,4 @@ Rifat Hossain
 * [Matplotlib Documentation](https://matplotlib.org/stable/tutorials/index.html)
 * [Pandas Documentation](https://pandas.pydata.org/docs/getting_started/overview.html)
 * [Kaggle Dataset Download Link](https://www.kaggle.com/datasets/waqasishtiaq/fitness/data)
-* [ChatGPT](https://chatgpt.com/)
+* [ChatGPT](https://chatgpt.com/share/68d2e889-4068-8000-8f22-94ec4d59afed)
