@@ -20,6 +20,7 @@ This program will analyze health data from a CSV file and provide visual represe
 ```
 pip install -r requirements.txt
 ```
+* Create a directory named `data` in the project root directory.
 * Download the dataset from [Kaggle Dataset Download Link](https://www.kaggle.com/datasets/waqasishtiaq/fitness/data) and after unzipping the file, place the `health_fitness_tracking_365days.csv` file in the `data` directory.
  
 ### Program Execution
